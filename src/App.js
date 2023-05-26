@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import {BrowserRouter as Router,Routes,Route} from "react-router-dom";
+import Header from "./component/Header.jsx";
+import Home from "./component/Home.jsx";
+import Coin from "./component/Coin.jsx";
+import Exchange from "./component/Exchange.jsx";
+import CoinDetails from './component/CoinDetails.jsx';
+import Footer from './component/Footer.jsx';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Header></Header>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/coin" element={<Coin />} />
+        <Route path="/exchange" element={<Exchange />} />
+        <Route path="/coin/:id" element={<CoinDetails />} />
+      </Routes>
+      <Footer/>
+    </Router>
   );
 }
 
-export default App;
+export default App
